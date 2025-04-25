@@ -1,0 +1,45 @@
+server:
+  port: 2501
+
+spring:
+  application:
+    name: spring-boot-postgres-voluminous
+  datasource:
+    url: jdbc:postgresql://10.0.0.132:5432/sonarqube
+    username: sonarqube
+    password: sonarqube
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20  # Augmenté pour plus de connexions simultanées
+      minimum-idle: 10       # Plus de connexions inactives pour réduire les latences
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: HikariPool-Demo
+      auto-commit: false     # Désactiver auto-commit pour les transactions par lots
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 500  # Augmenté pour plus de requêtes différentes
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        rewriteBatchedStatements: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size: 500      # Augmenté pour des lots plus grands
+          order_inserts: true
+          order_updates: true
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: none         # Désactiver en production
+    show-sql: false
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics

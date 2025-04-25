@@ -1,0 +1,49 @@
+
+------------------------------------------------------------
+sudo -u postgres psql
+------------------------------------------------------------
+CREATE USER sonarqube WITH PASSWORD 'sonarqube';
+CREATE DATABASE sonarqube OWNER sonarqube;
+GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonarqube;
+------------------------------------------------------------
+sudo vim /var/lib/pgsql/data/pg_hba.conf
+
+host sonarqube sonarqube 10.0.0.1/32 md5
+------------------------------------------------------------
+sudo vim /var/lib/pgsql/data/postgresql.conf 
+
+listen_addresses = '*'
+------------------------------------------------------------
+sudo -u postgres psql -d sonarqube
+------------------------------------------------------------
+CREATE TABLE employee
+(
+ 	employeeName varchar(100) NOT NULL,
+  	employeeId varchar(11) NOT NULL ,
+ 	employeeAddress varchar(100) DEFAULT NULL,
+ 	employeeEmail varchar(100) DEFAULT NULL,
+ 	PRIMARY KEY (employeeId)
+);
+INSERT INTO employee(employeeId, employeeName , employeeAddress,employeeEmail) values('1','Jihed','FR','jihed@gmail.com');
+------------------------------------------------------------
+\dt
+\dp employee
+GRANT ALL ON TABLE employee TO sonarqube;
+------------------------------------------------------------
+
+sudo systemctl restart postgresql
+sudo systemctl status postgresql
+------------------------------------------------------------
+sudo firewall-cmd --add-port=5432/tcp --permanent
+sudo firewall-cmd –reload
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+
+GRANT USAGE ON SCHEMA myapp TO sonarqube;
+GRANT ALL ON TABLE myapp.employee TO sonarqube;
+
+ALTER TABLE employee OWNER TO sonarqube;
+
+GRANT ALL ON SEQUENCE nom_de_la_sequence TO sonarqube;
