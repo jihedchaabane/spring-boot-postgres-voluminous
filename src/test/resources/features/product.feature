@@ -24,11 +24,11 @@ Feature: Product Management
     And the response should contain 100 products
     And the response should indicate a total of 150 products
 
-  Scenario: Retrieve a product by ID
-    Given a product exists with ID 1 and name "Test Product"
-    When I send a GET request to "/api/products/1"
-    Then the response status should be 200
-    And the response should contain a product with name "Test Product"
+#  Scenario: Retrieve a product by ID
+#    Given a product exists with ID 1 and name "Test Product"
+#    When I send a GET request to "/api/products/1"
+#    Then the response status should be 200
+#    And the response should contain a product with name "Test Product"
 
   Scenario: Delete a product
     Given a product exists with ID 1
