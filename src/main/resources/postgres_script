@@ -17,34 +17,24 @@ listen_addresses = '*'
 ------------------------------------------------------------
 sudo -u postgres psql -d postgres_data_source
 ------------------------------------------------------------
-CREATE TABLE employee
-(
- 	employeeName varchar(100) NOT NULL,
-  	employeeId varchar(11) NOT NULL ,
- 	employeeAddress varchar(100) DEFAULT NULL,
- 	employeeEmail varchar(100) DEFAULT NULL,
- 	PRIMARY KEY (employeeId)
-);
-INSERT INTO employee(employeeId, employeeName , employeeAddress,employeeEmail) values('1','Jihed','FR','jihed@gmail.com');
-------------------------------------------------------------
 \dt
-\dp employee
-GRANT ALL ON TABLE employee TO postgres_data_source;
+\dp product
+GRANT ALL ON TABLE product TO postgres_data_source;
 ------------------------------------------------------------
 
 sudo systemctl restart postgresql
 sudo systemctl status postgresql
 ------------------------------------------------------------
 sudo firewall-cmd --add-port=5432/tcp --permanent
-sudo firewall-cmd –reload
+sudo firewall-cmd --reload
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 
 
 GRANT USAGE ON SCHEMA myapp TO postgres_data_source;
-GRANT ALL ON TABLE myapp.employee TO postgres_data_source;
+GRANT ALL ON TABLE myapp.product TO postgres_data_source;
 
-ALTER TABLE employee OWNER TO postgres_data_source;
+ALTER TABLE product OWNER TO postgres_data_source;
 
 GRANT ALL ON SEQUENCE nom_de_la_sequence TO postgres_data_source;

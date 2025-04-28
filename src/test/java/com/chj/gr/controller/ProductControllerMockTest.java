@@ -24,10 +24,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.chj.gr.controller.ProductController;
 import com.chj.gr.model.Product;
 import com.chj.gr.service.ProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+/**
+ * mvn test -Dtest=ProductControllerTest
+ */
 
 @WebMvcTest(ProductController.class)
 class ProductControllerTest {

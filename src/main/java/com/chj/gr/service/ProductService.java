@@ -37,6 +37,7 @@ public class ProductService {
     @Transactional
     public void saveAllProductsJdbc(List<Product> products, int batchSize) {
         String sql = "INSERT INTO product (name, description, price) VALUES (?, ?, ?)";
+//        int currentBatch = 1;
         for (int i = 0; i < products.size(); i += batchSize) {
             List<Product> batch = products.subList(i, Math.min(i + batchSize, products.size()));
             jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
@@ -53,6 +54,8 @@ public class ProductService {
                     return batch.size();
                 }
             });
+//            System.out.println("Batch " + currentBatch + " : Saved " + (500 * currentBatch) + " products.");
+//            currentBatch ++;
         }
     }
 

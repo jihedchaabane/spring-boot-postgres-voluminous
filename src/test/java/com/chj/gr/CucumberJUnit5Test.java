@@ -7,7 +7,9 @@ import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
 import io.cucumber.junit.platform.engine.Constants;
-
+/**
+ * mvn test -Dtest=CucumberJUnit5Test
+ */
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")

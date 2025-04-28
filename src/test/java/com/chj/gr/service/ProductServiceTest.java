@@ -24,8 +24,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.chj.gr.model.Product;
 import com.chj.gr.repository.ProductRepository;
-import com.chj.gr.service.ProductService;
 
+/**
+ * mvn test -Dtest=ProductServiceTest
+ */
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {
 
