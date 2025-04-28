@@ -37,35 +37,35 @@ class ProductServiceIntegrationTest {
     @Test
     void saveAllProducts_largeDataset_shouldHandleLargeVolume() {
         // Simuler $count produits (limité pour les tests, ajustez pour 3M avec PostgreSQL)
-    	int count = 1000_000;
+    	int count = 10_000;
         List<Product> products = generateLargeProductList(count);
        
         long startTime = System.currentTimeMillis();
         productService.saveAllProducts(products);
         
         long duration = System.currentTimeMillis() - startTime;
-        System.out.println("Temps d'insertion pour " + count + " produits : " + duration + " ms");
-        		    //      Temps d'insertion pour    10 000 produits :   5 796 ms
-        			//		Temps d'insertion pour   100 000 produits :  48 715 ms 		almost 1 minute
-        			//		Temps d'insertion pour 1 000 000 produits : 479 203 ms 		almost 8 minutes.
+        System.out.println("[saveAllProducts] Temps d'insertion pour " + count + " produits : " + duration + " ms");
+        		    //      [saveAllProducts] Temps d'insertion pour    10 000 produits :   5 796 ms
+        			//		[saveAllProducts] Temps d'insertion pour   100 000 produits :  48 715 ms 		almost 1 minute
+        			//		[saveAllProducts] Temps d'insertion pour 1 000 000 produits : 479 203 ms 		almost 8 minutes.
         assertEquals(count, productRepository.count());
     }
     
     @Test
     public void saveAllProductsJdbc() {
     	// Simuler $count produits (limité pour les tests, ajustez pour 3M avec PostgreSQL)
-    	int count = 5000_000;
+    	int count = 100_000;
         List<Product> products = generateLargeProductList(count);
         
         long startTime = System.currentTimeMillis();
         productService.saveAllProductsJdbc(products, 500);
         long duration = System.currentTimeMillis() - startTime;
         
-        System.out.println("Temps d'insertion pour " + count + " produits : " + duration + " ms");
-					//		Temps d'insertion pour    10 000 produits :     377 ms
-        			//		Temps d'insertion pour   100 000 produits :   2 436 ms
-        			//		Temps d'insertion pour 1 000 000 produits :  20 889 ms
-        			//		Temps d'insertion pour 5 000 000 produits : 112 502 ms		almost 1.9 minutes
+        System.out.println("[ProductsJdbc] Temps d'insertion pour " + count + " produits : " + duration + " ms");
+					//		[ProductsJdbc] Temps d'insertion pour    10 000 produits :     377 ms
+        			//		[ProductsJdbc] Temps d'insertion pour   100 000 produits :   2 436 ms
+        			//		[ProductsJdbc] Temps d'insertion pour 1 000 000 produits :  20 889 ms
+        			//		[ProductsJdbc] Temps d'insertion pour 5 000 000 produits : 112 502 ms		almost 1.9 minutes
         assertEquals(count, productRepository.count());
     }
 
