@@ -10,6 +10,7 @@ GRANT ALL PRIVILEGES ON DATABASE postgres_data_source TO postgres_data_source;
 sudo vim /var/lib/pgsql/data/pg_hba.conf
 
 host postgres_data_source postgres_data_source 10.0.0.1/32 md5
+host postgres_data_source postgres_data_source 10.0.0.129/32 md5
 ------------------------------------------------------------
 sudo vim /var/lib/pgsql/data/postgresql.conf 
 

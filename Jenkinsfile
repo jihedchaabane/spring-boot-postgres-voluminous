@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // Nom de l'image Docker
-        DOCKER_IMAGE = 'jihed123/spring-boot-postgres-voluminous-0.0.1-SNAPSHOT'
+        DOCKER_IMAGE = 'jihed123/spring-boot-postgres-voluminous:0.0.1-SNAPSHOT'
         // Nom du conteneur
         CONTAINER_NAME = 'container-voluminous'
         // Port de l'application
