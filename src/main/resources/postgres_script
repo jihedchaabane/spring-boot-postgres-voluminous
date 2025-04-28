@@ -2,19 +2,20 @@
 ------------------------------------------------------------
 sudo -u postgres psql
 ------------------------------------------------------------
-CREATE USER sonarqube WITH PASSWORD 'sonarqube';
-CREATE DATABASE sonarqube OWNER sonarqube;
-GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonarqube;
+CREATE USER postgres_data_source WITH PASSWORD 'postgres_data_source';
+CREATE DATABASE postgres_data_source OWNER postgres_data_source;
+GRANT ALL PRIVILEGES ON DATABASE postgres_data_source TO postgres_data_source;
+\q
 ------------------------------------------------------------
 sudo vim /var/lib/pgsql/data/pg_hba.conf
 
-host sonarqube sonarqube 10.0.0.1/32 md5
+host postgres_data_source postgres_data_source 10.0.0.1/32 md5
 ------------------------------------------------------------
 sudo vim /var/lib/pgsql/data/postgresql.conf 
 
 listen_addresses = '*'
 ------------------------------------------------------------
-sudo -u postgres psql -d sonarqube
+sudo -u postgres psql -d postgres_data_source
 ------------------------------------------------------------
 CREATE TABLE employee
 (
@@ -28,7 +29,7 @@ INSERT INTO employee(employeeId, employeeName , employeeAddress,employeeEmail) v
 ------------------------------------------------------------
 \dt
 \dp employee
-GRANT ALL ON TABLE employee TO sonarqube;
+GRANT ALL ON TABLE employee TO postgres_data_source;
 ------------------------------------------------------------
 
 sudo systemctl restart postgresql
@@ -41,9 +42,9 @@ sudo firewall-cmd –reload
 ------------------------------------------------------------------------------------------------------------------------
 
 
-GRANT USAGE ON SCHEMA myapp TO sonarqube;
-GRANT ALL ON TABLE myapp.employee TO sonarqube;
+GRANT USAGE ON SCHEMA myapp TO postgres_data_source;
+GRANT ALL ON TABLE myapp.employee TO postgres_data_source;
 
-ALTER TABLE employee OWNER TO sonarqube;
+ALTER TABLE employee OWNER TO postgres_data_source;
 
-GRANT ALL ON SEQUENCE nom_de_la_sequence TO sonarqube;
+GRANT ALL ON SEQUENCE nom_de_la_sequence TO postgres_data_source;

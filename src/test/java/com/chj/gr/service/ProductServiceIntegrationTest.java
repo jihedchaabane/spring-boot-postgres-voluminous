@@ -1,4 +1,4 @@
-package com.sample.postgress.service;
+package com.chj.gr.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,8 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.sample.postgress.dao.ProductRepository;
-import com.sample.postgress.entity.Product;
+import com.chj.gr.model.Product;
+import com.chj.gr.repository.ProductRepository;
+import com.chj.gr.service.ProductService;
 
 @SpringBootTest
 @ActiveProfiles("test")

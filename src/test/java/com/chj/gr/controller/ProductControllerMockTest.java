@@ -1,4 +1,4 @@
-package com.sample.postgress.controller;
+package com.chj.gr.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
@@ -21,14 +21,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.chj.gr.controller.ProductController;
+import com.chj.gr.model.Product;
+import com.chj.gr.service.ProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.postgress.entity.Product;
-import com.sample.postgress.service.ProductService;
 
 @WebMvcTest(ProductController.class)
 class ProductControllerTest {

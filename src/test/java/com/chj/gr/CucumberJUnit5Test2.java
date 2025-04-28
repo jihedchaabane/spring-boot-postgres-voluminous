@@ -1,4 +1,4 @@
-package com.sample.postgress;
+package com.chj.gr;
 
 
 import org.junit.platform.suite.api.ConfigurationParameter;

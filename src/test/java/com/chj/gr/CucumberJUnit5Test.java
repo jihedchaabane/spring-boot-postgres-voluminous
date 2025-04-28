@@ -1,4 +1,4 @@
-package com.sample.postgress;
+package com.chj.gr;
 
 
 import org.junit.platform.suite.api.ConfigurationParameter;
@@ -11,7 +11,7 @@ import io.cucumber.junit.platform.engine.Constants;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
-@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "com.sample.postgress.stepdefs")
+@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "com.chj.gr.stepdefs")
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html")
 public class CucumberJUnit5Test {
 }

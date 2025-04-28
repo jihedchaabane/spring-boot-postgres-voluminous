@@ -1,4 +1,4 @@
-package com.sample.postgress.stepdefs;
+package com.chj.gr.stepdefs;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;

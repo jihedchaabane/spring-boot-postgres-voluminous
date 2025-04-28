@@ -1,4 +1,4 @@
-package com.sample.postgress.controller;
+package com.chj.gr.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sample.postgress.entity.Product;
-import com.sample.postgress.service.ProductService;
+import com.chj.gr.model.Product;
+import com.chj.gr.service.ProductService;
 
 @RestController
 @RequestMapping("/api/products")

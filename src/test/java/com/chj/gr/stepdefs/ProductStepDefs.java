@@ -1,4 +1,4 @@
-package com.sample.postgress.stepdefs;
+package com.chj.gr.stepdefs;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -12,9 +12,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
-import com.sample.postgress.dao.ProductRepository;
-import com.sample.postgress.entity.Product;
-import com.sample.postgress.service.ProductService;
+import com.chj.gr.model.Product;
+import com.chj.gr.repository.ProductRepository;
+import com.chj.gr.service.ProductService;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;

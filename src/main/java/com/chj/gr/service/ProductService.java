@@ -1,4 +1,4 @@
-package com.sample.postgress.service;
+package com.chj.gr.service;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -11,8 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sample.postgress.dao.ProductRepository;
-import com.sample.postgress.entity.Product;
+import com.chj.gr.model.Product;
+import com.chj.gr.repository.ProductRepository;
 
 @Service
 public class ProductService {

@@ -1,4 +1,4 @@
-package com.sample.postgress.service;
+package com.chj.gr.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -21,12 +21,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
-import com.sample.postgress.dao.ProductRepository;
-import com.sample.postgress.entity.Product;
+import com.chj.gr.model.Product;
+import com.chj.gr.repository.ProductRepository;
+import com.chj.gr.service.ProductService;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {
