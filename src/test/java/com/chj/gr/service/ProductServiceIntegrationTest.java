@@ -52,7 +52,7 @@ class ProductServiceIntegrationTest {
     }
     
     @Test
-    public void saveAllProductsJdbc() {
+    void saveAllProductsJdbc() {
     	// Simuler $count produits (limité pour les tests, ajustez pour 3M avec PostgreSQL)
     	int count = 100_000;
         List<Product> products = generateLargeProductList(count);
