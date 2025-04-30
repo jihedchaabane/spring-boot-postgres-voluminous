@@ -133,12 +133,12 @@ class ProductServiceTest {
     }
 
     private Product createProduct(Long id, String name) {
-        Product product = new Product();
-        product.setId(id);
-        product.setName(name);
-        product.setDescription("Description for " + name);
-        product.setPrice(new BigDecimal("99.99"));
-        return product;
+        Product productToCreate = new Product();
+        productToCreate.setId(id);
+        productToCreate.setName(name);
+        productToCreate.setDescription("Description for " + name);
+        productToCreate.setPrice(new BigDecimal("99.99"));
+        return productToCreate;
     }
 
     private List<Product> generateLargeProductList(int size) {
