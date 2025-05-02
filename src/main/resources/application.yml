@@ -5,7 +5,7 @@ spring:
   application:
     name: spring-boot-postgres-voluminous
   datasource:
-    url: jdbc:postgresql://10.0.0.132:5432/postgres_data_source
+    url: jdbc:postgresql://10.0.0.137:5432/postgres_data_source
     username: postgres_data_source
     password: postgres_data_source
     driver-class-name: org.postgresql.Driver

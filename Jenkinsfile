@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+       // jdk 'JDK21'
+        maven 'MAVEN'
+    }
     environment {
         // Nom de l'image Docker
         DOCKER_IMAGE = 'jihed123/spring-boot-postgres-voluminous:0.0.1-SNAPSHOT'
@@ -20,8 +24,20 @@ pipeline {
                 script {
                     // Construire le module Spring Boot
                     sh """
-                        /opt/maven/bin/mvn clean package
+                        mvn clean package
                     """
+                }
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                // Nom du serveur configuré dans l'étape 2
+                withSonarQubeEnv('SonarQubeServer') {
+                    sh '''
+                        mvn sonar:sonar \
+                            -Dsonar.java.binaries=. \
+                            -Dsonar.projectName=spring-boot-postgres-voluminous -Dsonar.projectKey=spring-boot-postgres-voluminous
+                    '''
                 }
             }
         }
